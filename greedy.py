@@ -3,7 +3,7 @@ __author__ = 'guypc'
 import pygame
 
 
-def do_grid():
+def do_grid(row_block_num, column_block_num):
     num_of_dots = 0
     for row in range(row_block_num):
         row_progress = (row * width) + (margin * row) + margin
@@ -19,10 +19,51 @@ def do_grid():
     return num_of_dots
 
 
-def is_dot_next():
+def is_dot_next(current_row, current_column):
     if grid[current_row][current_column] == 3:
         return True
     return False
+
+
+def move_up(current_row, current_column, score):
+    if current_row != 0:
+        grid[current_row][current_column] = 0
+        current_row -= 1
+        if is_dot_next(current_row, current_column):
+            score += 1
+    grid[current_row][current_column] = 1
+    return current_row, current_column, score
+
+
+def move_down(current_row, current_column, score):
+    if current_row != row_block_num - 1:
+        grid[current_row][current_column] = 0
+        current_row += 1
+        if is_dot_next(current_row, current_column):
+            score += 1
+        grid[current_row][current_column] = 1
+    return current_row, current_column, score
+
+
+def move_left(current_row, current_column, score):
+    if current_column != 0:
+        grid[current_row][current_column] = 0
+        current_column -= 1
+    if is_dot_next(current_row, current_column):
+        score += 1
+    grid[current_row][current_column] = 1
+    return current_row, current_column, score
+
+
+def move_right(current_row, current_column, score):
+    if current_column != column_block_num - 1:
+        grid[current_row][current_column] = 0
+        current_column += 1
+    if is_dot_next(current_row, current_column):
+        score += 1
+    grid[current_row][current_column] = 1
+    return current_row, current_column, score
+
 
 pygame.init()
 BLACK = (0, 0, 0)
@@ -30,8 +71,8 @@ WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
-row_block_num = 15
-column_block_num = 15
+row_block_num = 5
+column_block_num = 5
 screen_height = 25.25 * row_block_num
 screen_width = 25.25 * column_block_num
 size = (int(screen_width), int(screen_height))
@@ -50,48 +91,27 @@ for row in range(row_block_num):
     grid.append([])
     for column in range(column_block_num):
         grid[row].append(3)
-current_row = 5
-current_column = 5
+current_row = 0
+current_column = 0
 grid[current_row][current_column] = 1
-do_grid()
+num_of_dots = do_grid(row_block_num, column_block_num)
 screen.blit(font.render(str(score), True, RED), [10, 10])
 pygame.display.flip()
 while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-        if pygame.mouse.get_pressed()[0]:
-            x_pos = (pygame.mouse.get_pos()[0])
-            print "pos: " + str(x_pos) + " " + str(pygame.mouse.get_pos()[1])
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                if current_row != 0:
-                    grid[current_row][current_column] = 0
-                    current_row -= 1
-                    if is_dot_next():
-                        score += 1
-                    grid[current_row][current_column] = 1
+                current_row, current_column, score = move_up(current_row, current_column, score)
             if event.key == pygame.K_DOWN:
-                if current_row != row_block_num - 1:
-                    grid[current_row][current_column] = 0
-                    current_row += 1
-                    if is_dot_next():
-                        score += 1
-                    grid[current_row][current_column] = 1
+                current_row, current_column, score = move_down(current_row, current_column, score)
             if event.key == pygame.K_LEFT:
-                if current_column != 0:
-                    grid[current_row][current_column] = 0
-                    current_column -= 1
-                    if is_dot_next():
-                        score += 1
-                    grid[current_row][current_column] = 1
+                current_row, current_column, score = move_left(current_row, current_column, score)
             if event.key == pygame.K_RIGHT:
-                if current_column != column_block_num - 1:
-                    grid[current_row][current_column] = 0
-                    current_column += 1
-                    if is_dot_next():
-                        score += 1
-                    grid[current_row][current_column] = 1
-    num_of_dots = do_grid()
+                current_row, current_column, score = move_right(current_row, current_column, score)
+    num_of_dots = do_grid(row_block_num, column_block_num)
+    if num_of_dots == 0:
+        done = True
     screen.blit(font.render(str(score), True, RED), [10, 10])
     pygame.display.flip()
