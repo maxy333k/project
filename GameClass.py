@@ -36,9 +36,9 @@ class Greed:  # game-board class
         row = []
         # declaring the grid as a kind of 2d array but with list
         for i in xrange(row_block_num):
-            row.append(3)
-        for i in xrange(column_block_num):
-            self.grid.append(row)
+            self.grid.append([])
+            for j in xrange(column_block_num):
+                self.grid[i].append(3)
         #add the player to the grid
         self.player = player
         self.place_player(self.player)
