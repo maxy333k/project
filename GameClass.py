@@ -17,10 +17,11 @@ class Player:  # class that deals with the player
         self.y = y
 
 BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-GREEN = (0, 255, 0)
+WHITE = (255, 255, 255)  # blank space, num 0
+GREEN = (0, 255, 0)  # player, num 1
 RED = (255, 0, 0)
-YELLOW = (255, 255, 0)
+BLUE = (0, 0, 255)  # wall, num 2
+YELLOW = (255, 255, 0)  # dot that a player need to eat, num 3
 
 
 class Greed:  # game-board class
@@ -33,12 +34,13 @@ class Greed:  # game-board class
         self.column_block_num = column_block_num
         self.screen = screen
         self.grid = []
-        row = []
+
         # declaring the grid as a kind of 2d array but with list
         for i in xrange(row_block_num):
             self.grid.append([])
             for j in xrange(column_block_num):
                 self.grid[i].append(3)
+
         #add the player to the grid
         self.player = player
         self.place_player(self.player)
@@ -58,8 +60,9 @@ class Greed:  # game-board class
         return self.num_of_dots
 
     def change_pos(self, player, new_x, new_y):  # MUST BE DONE
+        
         pass
 
-    def place_player(self, player):  # placing the player on the grid, almost works
+    def place_player(self, player):  # placing the player on the grid,  works at least
         x, y = player.get_pose()
         self.grid[x][y] = 1
