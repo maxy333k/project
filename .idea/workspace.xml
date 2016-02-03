@@ -23,19 +23,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mainGame.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mainGame.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mainGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="22" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="1020">
+            <state line="53" column="64" selection-start="1636" selection-end="1636" vertical-scroll-proportion="0.6783784" vertical-offset="633" max-vertical-offset="1071">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameClass.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameClass.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="37" selection-start="2831" selection-end="2831" vertical-scroll-proportion="0.95405406" vertical-offset="1194" max-vertical-offset="1870">
+            <state line="63" column="32" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1887">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="teste.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/teste.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="37" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
               <folding />
             </state>
           </provider>
@@ -55,8 +64,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Classess.py" />
-        <option value="$PROJECT_DIR$/mainGame.py" />
+        <option value="$PROJECT_DIR$/teste.py" />
         <option value="$PROJECT_DIR$/GameClass.py" />
+        <option value="$PROJECT_DIR$/mainGame.py" />
       </list>
     </option>
   </component>
@@ -148,6 +158,24 @@
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="teste" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/teste.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -292,13 +320,15 @@
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Python.mainGame" />
       <item index="1" class="java.lang.String" itemvalue="Python.GameClass" />
+      <item index="2" class="java.lang.String" itemvalue="Python.teste" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.GameClass" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.teste" />
+        <item index="1" class="java.lang.String" itemvalue="Python.GameClass" />
       </list>
     </recent_temporary>
   </component>
@@ -398,16 +428,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainGame.py">
+    <entry file="file://$PROJECT_DIR$/teste.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="22" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="1020">
+        <state line="8" column="37" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GameClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="37" selection-start="2831" selection-end="2831" vertical-scroll-proportion="0.95405406" vertical-offset="1194" max-vertical-offset="1870">
+        <state line="63" column="32" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1887">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mainGame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="64" selection-start="1636" selection-end="1636" vertical-scroll-proportion="0.6783784" vertical-offset="633" max-vertical-offset="1071">
           <folding />
         </state>
       </provider>

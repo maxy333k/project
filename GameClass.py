@@ -17,7 +17,6 @@ class Player:  # class that deals with the player
         self.y = y
 
 
-
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)  # blank space, num 0
 GREEN = (0, 255, 0)  # player, num 1
@@ -37,6 +36,7 @@ class Greed:  # game-board class
         self.column_block_num = column_block_num
         self.screen = screen
         self.grid = []
+        self.score = 0
 
         # declaring the grid as a kind of 2d array but with list
         for i in xrange(row_block_num):
@@ -63,8 +63,6 @@ class Greed:  # game-board class
         direction.lower()
         x, y = player.get_pose()
         self.grid[x][y] = 0
-        if self.is_dot_next(x, y):
-            self.num_of_dots -= 1
 
         if direction == "up":
             if x == 0:
@@ -89,6 +87,9 @@ class Greed:  # game-board class
                 y = 0
             else:
                 y += 1
+        if self.is_dot_next(x, y):
+            self.num_of_dots -= 1
+            self.score += 1
         self.change_pos(player, x, y)
 
     def place_player(self, player):  # placing the player on the grid,  works at least (place the player on the grid)
