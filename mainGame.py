@@ -35,6 +35,7 @@ num_of_dots = grid.draw_grid()
 screen.blit(font.render(str(grid.score), True, RED), [10, 10])
 pygame.display.flip()
 
+#declaring status dict for player movement
 status_dict = {pygame.K_UP: "up",
                pygame.K_DOWN: "down",
                pygame.K_LEFT: "left",
@@ -51,7 +52,7 @@ while not done:
             done = True
         if event.type == pygame.KEYDOWN:  # movement for the player
             if event.key in status_dict:
-                grid.move_player(player, status_dict[event.key])
+                grid.move_player(player, direction=status_dict[event.key])
     if num_of_dots == 0:
         done = True
     grid.draw_grid()
