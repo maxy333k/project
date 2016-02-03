@@ -11,8 +11,8 @@ YELLOW = (255, 255, 0)
 color_list = [WHITE, GREEN, BLUE, YELLOW]
 
 #declaring general variables
-row_block_num = 5
-column_block_num = 5
+row_block_num = 15
+column_block_num = 15
 screen_height = 25.25 * row_block_num
 screen_width = 25.25 * column_block_num
 size = (int(screen_width), int(screen_height))
@@ -41,8 +41,14 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
         if event.type == pygame.KEYDOWN:
-
-            pass
+            if event.key == pygame.K_w or event.key == pygame.K_UP:
+                grid.move_player(player, direction="up")
+            if event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                grid.move_player(player, direction="down")
+            if event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                grid.move_player(player, direction="left")
+            if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+                grid.move_player(player, direction="right")
     if num_of_dots == 0:
         done = True
     grid.draw_grid()

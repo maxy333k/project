@@ -23,19 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mainGame.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mainGame.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="990" selection-end="990" vertical-scroll-proportion="1.5621622" vertical-offset="0" max-vertical-offset="850">
+            <state line="50" column="22" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="1020">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameClass.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="GameClass.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GameClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="38" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0" vertical-offset="208" max-vertical-offset="1258">
+            <state line="91" column="37" selection-start="2831" selection-end="2831" vertical-scroll-proportion="0.95405406" vertical-offset="1194" max-vertical-offset="1870">
               <folding />
             </state>
           </provider>
@@ -131,26 +131,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.mainGame">
-    <configuration default="false" name="mainGame" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainGame.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PyDebugRunner" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PyDebugRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="GameClass" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -292,14 +272,33 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="mainGame" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainGame.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.mainGame" />
       <item index="1" class="java.lang.String" itemvalue="Python.GameClass" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.mainGame" />
-        <item index="1" class="java.lang.String" itemvalue="Python.GameClass" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.GameClass" />
       </list>
     </recent_temporary>
   </component>
@@ -399,15 +398,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameClass.py">
+    <entry file="file://$PROJECT_DIR$/mainGame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="38" selection-start="2168" selection-end="2168" vertical-scroll-proportion="0.0" vertical-offset="412" max-vertical-offset="1258">
+        <state line="50" column="22" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="1020">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainGame.py">
+    <entry file="file://$PROJECT_DIR$/GameClass.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="37" selection-start="2831" selection-end="2831" vertical-scroll-proportion="0.95405406" vertical-offset="1194" max-vertical-offset="1870">
           <folding />
         </state>
       </provider>

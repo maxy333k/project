@@ -16,9 +16,7 @@ class Player:  # class that deals with the player
         self.x = x
         self.y = y
 
-    def change_pos(self, player, new_x, new_y):  # (change the player position)
-        self.set_pose(new_x, new_y)
-        self.place_player(player)
+
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)  # blank space, num 0
@@ -61,8 +59,37 @@ class Greed:  # game-board class
                     self.num_of_dots += 1
         return self.num_of_dots
 
-    def move_player(self, player):  # learn partial, and use it here or something like that
-        pass
+    def move_player(self, player, direction):  # move the player according to the direction
+        direction.lower()
+        x, y = player.get_pose()
+        self.grid[x][y] = 0
+        if self.is_dot_next(x, y):
+            self.num_of_dots -= 1
+
+        if direction == "up":
+            if x == 0:
+                x = self.row_block_num - 1
+            else:
+                x -= 1
+
+        if direction == "down":
+            if x == self.row_block_num - 1:
+                x = 0
+            else:
+                x += 1
+
+        if direction == "left":
+            if y == 0:
+                y = self.column_block_num - 1
+            else:
+                y -= 1
+
+        if direction == "right":
+            if y == self.column_block_num - 1:
+                y = 0
+            else:
+                y += 1
+        self.change_pos(player, x, y)
 
     def place_player(self, player):  # placing the player on the grid,  works at least (place the player on the grid)
         x, y = player.get_pose()
@@ -72,3 +99,7 @@ class Greed:  # game-board class
         if self.grid[current_row][current_column] == 3:
             return True
         return False
+
+    def change_pos(self, player, new_x, new_y):  # (change the player position)
+        player.set_pose(new_x, new_y)
+        self.place_player(player)
