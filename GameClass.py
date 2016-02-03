@@ -60,7 +60,7 @@ class Greed:  # game-board class
         return self.num_of_dots
 
     def change_pos(self, player, new_x, new_y):  # MUST BE DONE
-        
+
         pass
 
     def place_player(self, player):  # placing the player on the grid,  works at least
