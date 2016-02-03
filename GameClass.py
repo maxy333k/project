@@ -16,12 +16,17 @@ class Player:  # class that deals with the player
         self.x = x
         self.y = y
 
+    def change_pos(self, player, new_x, new_y):  # (change the player position)
+        self.set_pose(new_x, new_y)
+        self.place_player(player)
+
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)  # blank space, num 0
 GREEN = (0, 255, 0)  # player, num 1
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)  # wall, num 2
 YELLOW = (255, 255, 0)  # dot that a player need to eat, num 3
+color_list = [WHITE, GREEN, BLUE, YELLOW]
 
 
 class Greed:  # game-board class
@@ -45,24 +50,20 @@ class Greed:  # game-board class
         self.player = player
         self.place_player(self.player)
 
-    def draw_grid(self):  # work, don't touch it
+    def draw_grid(self):  # work, don't touch it (draw the grid on the screen)
         for row in range(self.row_block_num):
             row_progress = (row * self.width) + (self.margin * row) + self.margin
             for column in range(self.column_block_num):
                 progress = (column * self.width) + (self.margin * column)
-                if self.grid[row][column] == 1:  # player spot
-                    pygame.draw.rect(self.screen, GREEN, [progress + self.margin, row_progress, self.width, self.height])
-                elif self.grid[row][column] == 3:  # point that pac-man will eat
-                    pygame.draw.rect(self.screen, YELLOW, [progress + self.margin, row_progress, self.width, self.height])
+                pygame.draw.rect(self.screen, color_list[self.grid[row][column]], [progress + self.margin, row_progress,
+                                                                                   self.width, self.height])
+                if self.grid[row][column]:
                     self.num_of_dots += 1
-                elif self.grid[row][column] == 0:  # blank space
-                    pygame.draw.rect(self.screen, WHITE, [progress + self.margin, row_progress, self.width, self.height])
         return self.num_of_dots
 
-    def change_pos(self, player, new_x, new_y):  # MUST BE DONE
-
+    def move_player(self, player):  # learn partial, and use it here or something like that
         pass
 
-    def place_player(self, player):  # placing the player on the grid,  works at least
+    def place_player(self, player):  # placing the player on the grid,  works at least (place the player on the grid)
         x, y = player.get_pose()
         self.grid[x][y] = 1
