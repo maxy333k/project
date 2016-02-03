@@ -60,33 +60,21 @@ class Greed:  # game-board class
         return self.num_of_dots
 
     def move_player(self, player, direction):  # move the player according to the direction
-        direction.lower()
         x, y = player.get_pose()
+        new_x, new_y = direction
         self.grid[x][y] = 0
+        x += new_x
+        y += new_y
 
-        if direction == "up":
-            if x == 0:
-                x = self.row_block_num - 1
-            else:
-                x -= 1
+        if x < 0:
+            x = self.column_block_num - 1
+        if y < 0:
+            y = self.row_block_num - 1
+        if x == self.column_block_num:
+            x = 0
+        if y == self.row_block_num:
+            y = 0
 
-        if direction == "down":
-            if x == self.row_block_num - 1:
-                x = 0
-            else:
-                x += 1
-
-        if direction == "left":
-            if y == 0:
-                y = self.column_block_num - 1
-            else:
-                y -= 1
-
-        if direction == "right":
-            if y == self.column_block_num - 1:
-                y = 0
-            else:
-                y += 1
         if self.is_dot_next(x, y):
             self.num_of_dots -= 1
             self.score += 1

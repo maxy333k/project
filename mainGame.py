@@ -36,14 +36,14 @@ screen.blit(font.render(str(grid.score), True, RED), [10, 10])
 pygame.display.flip()
 
 #declaring status dict for player movement
-status_dict = {pygame.K_UP: "up",
-               pygame.K_DOWN: "down",
-               pygame.K_LEFT: "left",
-               pygame.K_RIGHT: "right",
-               pygame.K_w: "up",
-               pygame.K_s: "down",
-               pygame.K_a: "left",
-               pygame.K_d: "right"}
+status_dict = {pygame.K_UP: (-1, 0),
+               pygame.K_DOWN: (1, 0),
+               pygame.K_LEFT: (0, -1),
+               pygame.K_RIGHT: (0, 1),
+               pygame.K_w: (-1, 0),
+               pygame.K_s: (1, 0),
+               pygame.K_a: (0, -1),
+               pygame.K_d: (0, 1)}
 
 #main game loop
 while not done:
