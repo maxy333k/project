@@ -67,3 +67,8 @@ class Greed:  # game-board class
     def place_player(self, player):  # placing the player on the grid,  works at least (place the player on the grid)
         x, y = player.get_pose()
         self.grid[x][y] = 1
+
+    def is_dot_next(self, current_row, current_column):  # return if the next position of the player is a dot
+        if self.grid[current_row][current_column] == 3:
+            return True
+        return False
