@@ -26,16 +26,27 @@
       <file leaf-file-name="mainGame.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="17" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="1088">
+            <state line="5" column="1" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1088">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameClass.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="QServer.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/QServer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="49" selection-start="499" selection-end="499" vertical-scroll-proportion="0.6766169" vertical-offset="0" max-vertical-offset="402">
+              <folding>
+                <element signature="e#22#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameClass.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="32" selection-start="2160" selection-end="2160" vertical-scroll-proportion="0.36567163" vertical-offset="924" max-vertical-offset="1530">
+            <state line="18" column="0" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
@@ -58,6 +69,7 @@
         <option value="$PROJECT_DIR$/teste.py" />
         <option value="$PROJECT_DIR$/mainGame.py" />
         <option value="$PROJECT_DIR$/GameClass.py" />
+        <option value="$PROJECT_DIR$/QServer.py" />
       </list>
     </option>
   </component>
@@ -433,17 +445,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mainGame.py">
+    <entry file="file://$PROJECT_DIR$/GameClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="276" selection-end="276" vertical-scroll-proportion="0.0" vertical-offset="74" max-vertical-offset="1088">
+        <state line="18" column="0" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GameClass.py">
+    <entry file="file://$PROJECT_DIR$/mainGame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="32" selection-start="2160" selection-end="2160" vertical-scroll-proportion="0.36567163" vertical-offset="924" max-vertical-offset="1530">
+        <state line="5" column="1" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1088">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="49" selection-start="499" selection-end="499" vertical-scroll-proportion="0.6766169" vertical-offset="0" max-vertical-offset="402">
+          <folding>
+            <element signature="e#22#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
