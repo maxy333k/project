@@ -17,6 +17,10 @@ my_socket = socket.socket()
 my_socket.connect(("127.0.0.1", 6845))
 my_socket.send("ip:port")
 
+print "waiting for more players to connect"
+
+
+
 #declaring general variables
 row_block_num = 8
 column_block_num = 8

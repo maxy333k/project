@@ -2,6 +2,7 @@ __author__ = 'guypc'
 
 import socket
 import select
+import random
 
 
 #recive all ips and ports form txt file
@@ -15,10 +16,12 @@ def get_clients_address():
 #creting sockets
 GServer_socket = socket.socket()
 client_address = get_clients_address()
+client_socket = []
 
 #connecting with each client by the ip
 for client_socket in client_address:
-    pass
+    GServer_socket.bind((client_socket[0], client_socket[1]))
+    client_socket.append(GServer_socket.accept())
 
 while True:
     pass

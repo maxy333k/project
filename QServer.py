@@ -6,7 +6,7 @@ import os
 import sys
 import random
 
-def send_waiting_message(wlist):
+def send_game_port_to_players(port):
     for message in messages_to_send:
         (client_socket, data) = message
         for current_client in wlist:
@@ -19,10 +19,13 @@ def send_waiting_message(wlist):
 def move_to_game_server(player_list):
     player_file = open("players.txt", 'w')
     for client in player_list:
-        ip, port = client
         player_file.write(client[0] + ":" + str(client[1]))
-    pass
 
+
+#define port for the game server
+def set_port():
+    port_file = open("port.txt", 'w')
+    port_file.write(random.randint(6850, 7000))
 
 #open the game server file (GServer.py)
 def open_game_server():
@@ -54,6 +57,7 @@ while True:
     #start the game
     if len(client_info) == players:
         move_to_game_server(client_info)
+
         open_game_server()
         client_info = []
         open_client_socket = []
