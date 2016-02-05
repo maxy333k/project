@@ -2,6 +2,8 @@ __author__ = 'guypc'
 
 import pygame
 from GameClass import *
+import socket
+import select
 
 #declarin color variables and color list
 BLACK = (0, 0, 0)
