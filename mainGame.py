@@ -19,6 +19,8 @@ my_socket.send("ip:port")
 
 print "waiting for more players to connect"
 
+g_server_port = int(my_socket.recv(1024))
+
 
 
 #declaring general variables

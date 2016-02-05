@@ -6,13 +6,10 @@ import os
 import sys
 import random
 
-def send_game_port_to_players(port):
-    for message in messages_to_send:
-        (client_socket, data) = message
-        for current_client in wlist:
-            if client_socket is not current_client:
-                current_client.send(data)
-        messages_to_send.remove(message)
+
+def send_game_port_to_players(port, wlist):
+    for current_client in wlist:
+        current_client.send(str(port))
 
 
 #move all the players in queue to the game server
@@ -24,21 +21,22 @@ def move_to_game_server(player_list):
 
 #define port for the game server
 def set_port():
-    port_file = open("port.txt", 'w')
-    port_file.write(random.randint(6850, 7000))
+    return random.randint(6850, 7000)
 
 #open the game server file (GServer.py)
 def open_game_server():
     os.system("GServer.py")
     pass
 
+
+print "i am queue server"
 #opening server socket and listening to clients
 server_socket = socket.socket()
 server_socket.bind(("0.0.0.0", 6845))
 server_socket.listen(5)
 open_client_socket = []
 messages_to_send = []
-players = 1  # number of players in the game
+players = 2  # number of players in the game
 
 while True:
     rlist, wlist, xlist = select.select([server_socket] + open_client_socket, open_client_socket, [])
@@ -54,10 +52,11 @@ while True:
                 print "rip"
             print data
 
-    #start the game
+    #start the game at game server
     if len(client_info) == players:
         move_to_game_server(client_info)
-
+        port = 53
+       # send_game_port_to_players(port, wlist)
         open_game_server()
         client_info = []
         open_client_socket = []
