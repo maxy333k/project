@@ -4,6 +4,7 @@ import socket
 import select
 import os
 import sys
+import random
 
 def send_waiting_message(wlist):
     for message in messages_to_send:
@@ -52,8 +53,7 @@ while True:
 
     #start the game
     if len(client_info) == players:
-        print "all done"
-        open_game_server()
         move_to_game_server(client_info)
+        open_game_server()
         client_info = []
         open_client_socket = []
