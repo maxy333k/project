@@ -12,6 +12,11 @@ GREEN = (0, 255, 0)
 YELLOW = (255, 255, 0)
 color_list = [WHITE, GREEN, BLUE, YELLOW]
 
+#establishing connection with QServer
+my_socket = socket.socket()
+my_socket.connect(("127.0.0.1", 6845))
+my_socket.send("ip:port")
+
 #declaring general variables
 row_block_num = 8
 column_block_num = 8
