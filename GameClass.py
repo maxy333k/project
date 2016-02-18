@@ -71,7 +71,7 @@ class Greed:  # game-board class
         if y < 0:
             y = self.row_block_num - 1
         if x == self.column_block_num:
-            x = 0
+            x = 00
         if y == self.row_block_num:
             y = 0
 
