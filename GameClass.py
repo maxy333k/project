@@ -63,6 +63,7 @@ class Greed:  # game-board class
         x, y = player.get_pose()
         new_x, new_y = direction
         self.grid[x][y] = 0
+<<<<<<< HEAD
         x += new_x
         y += new_y
 
@@ -74,6 +75,10 @@ class Greed:  # game-board class
             x = 00
         if y == self.row_block_num:
             y = 0
+=======
+        x = (x + new_x + self.column_block_num) % self.column_block_num
+        y = (y + new_y + self.row_block_num) % self.row_block_num
+>>>>>>> origin/master
 
         if self.is_dot_next(x, y):
             self.num_of_dots -= 1

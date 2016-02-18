@@ -11,8 +11,8 @@ YELLOW = (255, 255, 0)
 color_list = [WHITE, GREEN, BLUE, YELLOW]
 
 #declaring general variables
-row_block_num = 5
-column_block_num = 5
+row_block_num = 8
+column_block_num = 8
 screen_height = 25.25 * row_block_num
 screen_width = 25.25 * column_block_num
 size = (int(screen_width), int(screen_height))
