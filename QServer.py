@@ -1,42 +1,46 @@
 __author__ = 'guypc'
 
+
 import socket
 import select
 import os
-import sys
-import random
 
-import socket
-import select
+#send the game server port for all the clients
+def send_waiting_message(client_list, port):
+    for current_client in client_list:
+        current_client.send(str(port))
 
+#close the connection for all the clients
+def close_connection(socket_list):
+    for that_socket in socket_list:
+        that_socket.close()
 
-def send_waiting_message(wlist):
-    for message in messages_to_send:
-        (client_socket, data) = message
-        for current_client in wlist:
-            if client_socket is not current_client:
-                current_client.send(data)
-        messages_to_send.remove(message)
-
-
-print "i'm queue server"
+#creating the socket and socket list
 server_socket = socket.socket()
-server_socket.bind(("0.0.0.0", 23))
+server_socket.bind(("0.0.0.0", 2300))
 server_socket.listen(5)
 open_client_socket = []
-messages_to_send = str(random.randint(6900, 7001))
+messages_to_send = []
+num_of_players = 1
+online_players = 0
+g_port = 2301
+
 while True:
+    #waiting for 5 players to connect to the server
     rlist, wlist, xlist = select.select([server_socket] + open_client_socket, open_client_socket, [])
     for current_socket in rlist:
         if current_socket is server_socket:
             (new_socket, address) = server_socket.accept()
             open_client_socket.append(new_socket)
-        else:
-            data = current_socket.recv(1024)
-            if data == "":
-                open_client_socket.remove(current_socket)
-                print "connection was closed"
-            else:
-                messages_to_send.append((current_socket, data))
-    send_waiting_message(wlist)
+            online_players += 1
+            print "hello"
+
+    #start the new server and restarting the client list
+    if online_players == num_of_players:
+        os.system("start GServer.py")
+        print "opened"
+        send_waiting_message(open_client_socket, g_port)
+        close_connection(open_client_socket)
+        open_client_socket = []
+        online_players = 0
 

@@ -14,12 +14,14 @@ color_list = [WHITE, GREEN, BLUE, YELLOW]
 
 #establishing connection with QServer
 my_socket = socket.socket()
-my_socket.connect(("127.0.0.1", 23))
+ip = "127.0.0.1"
+port = 2300
+my_socket.connect((ip, port))
 
 print "waiting for more players to connect"
 port = my_socket.recv(1024)
 
-print port
+my_socket.connect((ip, port))
 
 #declaring general variables
 row_block_num = 8

@@ -4,26 +4,18 @@ import socket
 import select
 import random
 
+#creating the socket
+server_socket = socket.socket()
+client_sockets = []
+server_socket.listen(5)
+num_of_players = 5
 
-#recive all ips and ports form txt file
-def get_clients_address():
-    ip_file = open("players.txt", 'r')
-    client_list = []
-    for line in ip_file:
-        client_list.append(line.split(":"))
-    return client_list
+#waiting for all players to connect
+while num_of_players != len(client_sockets):
+    (new_socket, address) = server_socket.accept()
+    client_sockets.append(new_socket)
 
-#creting sockets
-GServer_socket = socket.socket()
-client_address = get_clients_address()
-client_socket = []
-
-#connecting with each client by the ip
-for client_socket in client_address:
-    GServer_socket.bind((client_socket[0], client_socket[1]))
-    client_socket.append(GServer_socket.accept())
-
-while True:
-    pass
-
-print "done"
+#define the map size and all players starting positions
+x_length = 8
+y_length = 8
+pos_list = []
