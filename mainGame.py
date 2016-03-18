@@ -14,14 +14,12 @@ color_list = [WHITE, GREEN, BLUE, YELLOW]
 
 #establishing connection with QServer
 my_socket = socket.socket()
-my_socket.connect(("127.0.0.1", 6845))
-my_socket.send("ip:port")
+my_socket.connect(("127.0.0.1", 23))
 
 print "waiting for more players to connect"
+port = my_socket.recv(1024)
 
-g_server_port = int(my_socket.recv(1024))
-
-
+print port
 
 #declaring general variables
 row_block_num = 8
@@ -71,3 +69,4 @@ while not done:
     grid.draw_grid()
     screen.blit(font.render(str(grid.score), True, RED), [10, 10])
     pygame.display.flip()
+my_socket.close()
