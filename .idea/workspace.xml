@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GServer.py" afterPath="$PROJECT_DIR$/GServer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GameClass.py" afterPath="$PROJECT_DIR$/GameClass.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mainGame.py" afterPath="$PROJECT_DIR$/mainGame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/port.txt" afterPath="$PROJECT_DIR$/port.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="project.iws" />
@@ -32,7 +31,7 @@
       <file leaf-file-name="mainGame.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainGame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="29" selection-start="3348" selection-end="3348" vertical-scroll-proportion="0.0" vertical-offset="1831" max-vertical-offset="2431">
+            <state line="78" column="5" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="1882" max-vertical-offset="2499">
               <folding />
             </state>
           </provider>
@@ -41,7 +40,7 @@
       <file leaf-file-name="GServer.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="49" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.5963061" vertical-offset="1236" max-vertical-offset="1666">
+            <state line="93" column="53" selection-start="2912" selection-end="2912" vertical-scroll-proportion="0.5963061" vertical-offset="1287" max-vertical-offset="1819">
               <folding />
             </state>
           </provider>
@@ -50,7 +49,7 @@
       <file leaf-file-name="GameClass.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="22" selection-start="3727" selection-end="3728" vertical-scroll-proportion="0.0" vertical-offset="1270" max-vertical-offset="2159">
+            <state line="74" column="0" selection-start="2546" selection-end="2546" vertical-scroll-proportion="0.0" vertical-offset="1032" max-vertical-offset="1615">
               <folding />
             </state>
           </provider>
@@ -59,7 +58,7 @@
       <file leaf-file-name="QServer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="33" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0" vertical-offset="211" max-vertical-offset="1054">
+            <state line="28" column="33" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0" vertical-offset="568" max-vertical-offset="1054">
               <folding />
             </state>
           </provider>
@@ -83,8 +82,8 @@
         <option value="$PROJECT_DIR$/teste.py" />
         <option value="$USER_HOME$/Downloads/Telegram Desktop/lakoah.py" />
         <option value="$PROJECT_DIR$/QServer.py" />
-        <option value="$PROJECT_DIR$/mainGame.py" />
         <option value="$PROJECT_DIR$/GameClass.py" />
+        <option value="$PROJECT_DIR$/mainGame.py" />
         <option value="$PROJECT_DIR$/GServer.py" />
       </list>
     </option>
@@ -803,21 +802,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mainGame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="29" selection-start="3348" selection-end="3348" vertical-scroll-proportion="0.0" vertical-offset="1831" max-vertical-offset="2431">
+        <state line="78" column="5" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="2499">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GameClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="22" selection-start="3727" selection-end="3728" vertical-scroll-proportion="0.0" vertical-offset="1270" max-vertical-offset="2159">
+        <state line="74" column="0" selection-start="2546" selection-end="2546" vertical-scroll-proportion="0.0" vertical-offset="1032" max-vertical-offset="1615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="49" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.5963061" vertical-offset="1236" max-vertical-offset="1666">
+        <state line="93" column="53" selection-start="2912" selection-end="2912" vertical-scroll-proportion="0.5963061" vertical-offset="1287" max-vertical-offset="1819">
           <folding />
         </state>
       </provider>

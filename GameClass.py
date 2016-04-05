@@ -30,27 +30,6 @@ color_list = [WHITE, GREEN, BLUE, YELLOW]
 
 
 class Greed:  # game-board class
-    def __init__(self, row_block_num, column_block_num, screen, player):  # work, don't touch it
-        self.num_of_dots = 0
-        self.width = 20
-        self.height = 20
-        self.margin = 5
-        self.row_block_num = row_block_num
-        self.column_block_num = column_block_num
-        self.screen = screen
-        self.grid = []
-        self.score = 0
-
-        # declaring the grid as a kind of 2d array but with list
-        for i in xrange(row_block_num):
-            self.grid.append([])
-            for j in xrange(column_block_num):
-                self.grid[i].append(3)
-
-        #add the player to the grid
-        self.player = player
-        self.place_player(self.player)
-
     def __init__(self, row_block_num, column_block_num, role):  # work, don't touch it
         self.num_of_dots = 0
         self.width = 20
@@ -66,6 +45,8 @@ class Greed:  # game-board class
             self.grid.append([])
             for j in xrange(column_block_num):
                 self.grid[i].append(role)
+                if role == 3:
+                    self.num_of_dots += 1
 
     def add_screen(self, screen):
         self.screen = screen
@@ -87,7 +68,7 @@ class Greed:  # game-board class
         self.grid[x][y] = 0
         x = (x + new_x + self.column_block_num) % self.column_block_num
         y = (y + new_y + self.row_block_num) % self.row_block_num
-        if self.is_dot_next(x, y):
+        if self.grid[x][y] == 3:
             self.num_of_dots -= 1
             self.score += 1
         self.change_pos(player, x, y, value)
@@ -96,11 +77,6 @@ class Greed:  # game-board class
     def place_player(self, player, value):
         x, y = player.get_pose()
         self.grid[x][y] = value
-
-    def is_dot_next(self, current_row, current_column):  # return if the next position of the player is a dot
-        if self.grid[current_row][current_column] == 3:
-            return True
-        return False
 
     def change_pos(self, player, new_x, new_y, value):  # (change the player position)
         player.set_pose(new_x, new_y)
@@ -111,12 +87,3 @@ class Greed:  # game-board class
 
     def get_num_of_dots(self):
         return self.num_of_dots
-
-    def check_next_pos_by_status(self, player, status):
-        x, y = player.get_pose()
-        new_x, new_y = status
-        x = (x + new_x + self.column_block_num) % self.column_block_num
-        y = (y + new_y + self.row_block_num) % self.row_block_num
-        if self.is_dot_next(x, y):
-            return 3
-        return self.get_place_info(x, y)

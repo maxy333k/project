@@ -32,8 +32,9 @@ print "hello"
 x_length = 8
 y_length = 8
 greed = Greed(x_length, y_length, 3)
+pac_board = Greed(x_length, y_length, 3)
 player_list = []
-
+num_of_dots = x_length * y_length - num_of_players
 #place all the players in a randomly generated places
 pac_id = random.randint(0, (num_of_players - 1))
 print pac_id
@@ -47,6 +48,8 @@ for i in xrange(num_of_players):
     player_list.append((x_pos, y_pos))
     if i == pac_id:
         greed.place_player(temp_player, 2)
+        pac_board.place_player(temp_player, 2)
+        num_of_dots = pac_board.get_num_of_dots()
     else:
         greed.place_player(temp_player, 1)
 
@@ -87,6 +90,12 @@ while done == 0:
                 status = cPickle.loads(status)
                 if id_id == pac_id:
                     greed.move_player(temp_player, status, 2)
+                    pac_board.move_player(temp_player, status, 2)
+                    #problems with it, no real reason
+                    num_of_dots = pac_board.get_num_of_dots()
+                    print num_of_dots
+                    if num_of_dots == 0:
+                        done = 2
                 else:
                     greed.move_player(temp_player, status, 1)
                     if temp_player.get_pose() == pac_pos:

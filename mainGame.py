@@ -73,7 +73,12 @@ size = (int(screen_width), int(screen_height))
 pygame.init()
 font = pygame.font.SysFont('Calibri', 25, True, False)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("New game")
+caption = ""
+if role == 0:
+    caption = "Ghost"
+else:
+    caption = "PacMan"
+pygame.display.set_caption(caption)
 clock = pygame.time.Clock()
 done = 0
 """
@@ -116,7 +121,6 @@ while done == 0:
             if data != "":
                 new_pos, id_id, done = data.split("+")
                 done = int(done)
-                print done
                 new_pos = cPickle.loads(new_pos)
                 value = 1
                 id_id = int(id_id)
