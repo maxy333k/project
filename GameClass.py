@@ -111,3 +111,12 @@ class Greed:  # game-board class
 
     def get_num_of_dots(self):
         return self.num_of_dots
+
+    def check_next_pos_by_status(self, player, status):
+        x, y = player.get_pose()
+        new_x, new_y = status
+        x = (x + new_x + self.column_block_num) % self.column_block_num
+        y = (y + new_y + self.row_block_num) % self.row_block_num
+        if self.is_dot_next(x, y):
+            return 3
+        return self.get_place_info(x, y)

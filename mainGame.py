@@ -34,9 +34,10 @@ def connect(my_socket):  # connect to server and return the grid with all the pl
     print "connected"
     #reciving the id, positions and if the player is pac-man
     data = my_socket.recv(1024)
-    number, players_pos, role = data.split(",")
+    number, players_pos, role = data.split("+")  # fix and add role
     number = int(number)
     role = int(role)
+    print number
     players_pos = cPickle.loads(players_pos)
     players_list = []
     for temp_player in players_pos:
@@ -47,8 +48,6 @@ def connect(my_socket):  # connect to server and return the grid with all the pl
     x_length = 8
     y_length = 8
     count = 0
-    if role == 1:
-        role = 3
     board = Greed(x_length, y_length, role)
     for temp_player in players_list:
         if count == number:
@@ -75,8 +74,14 @@ pygame.init()
 font = pygame.font.SysFont('Calibri', 25, True, False)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("New game")
-done = False
 clock = pygame.time.Clock()
+done = 0
+"""
+done:
+0 - game continue
+1 - ghosts won
+2 - pac-man won
+"""
 
 
 #drawing the grid according to the server info/
@@ -96,7 +101,7 @@ status_dict = {pygame.K_UP: (-1, 0),
                pygame.K_d: (0, 1)}
 
 #main game loop
-while not done:
+while done == 0:
     read, write, error = select.select([my_socket], [my_socket], [my_socket])
     if len(write) != 0:
         write = write[0]
@@ -109,7 +114,9 @@ while not done:
             data = read.recv(1024)
         finally:
             if data != "":
-                new_pos, id_id = data.split("+")
+                new_pos, id_id, done = data.split("+")
+                done = int(done)
+                print done
                 new_pos = cPickle.loads(new_pos)
                 value = 1
                 id_id = int(id_id)
@@ -118,8 +125,6 @@ while not done:
                 grid.move_player(player_list[id_id], new_pos, value)
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
         if event.type == pygame.KEYDOWN:  # movement for the player
             if event.key in status_dict:
                 to_send = cPickle.dumps(status_dict[event.key]) + "," + str(id_number)
@@ -129,4 +134,9 @@ while not done:
     grid.draw_grid()
     screen.blit(font.render(str(grid.score), True, RED), [10, 10])
     pygame.display.flip()
+if done == 1:
+    print "ghosts have won"
+if done == 2:
+    print "pac-man won"
 my_socket.close()
+raw_input("game over, you may exit")
