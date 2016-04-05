@@ -4,24 +4,64 @@ import pygame
 from GameClass import *
 import socket
 import select
+import cPickle
+
 
 #declarin color variables and color list
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
 YELLOW = (255, 255, 0)
+RED = (255, 0, 0)
 color_list = [WHITE, GREEN, BLUE, YELLOW]
 
-#establishing connection with QServer
-my_socket = socket.socket()
-ip = "127.0.0.1"
-port = 2300
-my_socket.connect((ip, port))
 
-print "waiting for more players to connect"
-port = my_socket.recv(1024)
+def connect(my_socket):  # connect to server and return the grid with all the players on it
+    #establishing connection with QServer
+    ip = "127.0.0.1"
+    port = 2300
+    my_socket.connect((ip, port))
 
-my_socket.connect((ip, port))
+    #reciving the new port, closing the current socket and start a new one
+    print "waiting for more players to connect"
+    port = my_socket.recv(1024)
+    print port
+    my_socket.shutdown(socket.SHUT_WR)
+    my_socket = socket.socket()
+    port = int(port)
+    #connecting to the game server
+    my_socket.connect((ip, port))
+    print "connected"
+    #reciving the id, positions and if the player is pac-man
+    data = my_socket.recv(1024)
+    number, players_pos, role = data.split(",")
+    number = int(number)
+    role = int(role)
+    players_pos = cPickle.loads(players_pos)
+    players_list = []
+    for temp_player in players_pos:
+        temp_x, temp_y = temp_player
+        players_list.append(Player(temp_x, temp_y))
+
+    #placing the player on the board
+    x_length = 8
+    y_length = 8
+    count = 0
+    if role == 1:
+        role = 3
+    board = Greed(x_length, y_length, role)
+    for temp_player in players_list:
+        if count == number:
+            board.place_player(temp_player, 2)
+        else:
+            board.place_player(temp_player, 1)
+        count += 1
+    return board, players_list, number, role, my_socket
+
+
+#connect
+grid, player_list, id_number, role, my_socket = connect(socket.socket())
+
 
 #declaring general variables
 row_block_num = 8
@@ -39,13 +79,10 @@ done = False
 clock = pygame.time.Clock()
 
 
-#declaring player position and drawing the grid
-current_row = 1
-current_column = 1
-player = Player(current_row, current_column)  # <--- declare the player, as an object, NOT A TUPLE
-grid = Greed(row_block_num, column_block_num, screen, player)  # <---- the game board, NOT AN ARRAY FFS GUY
+#drawing the grid according to the server info/
+
+grid.add_screen(screen)
 num_of_dots = grid.draw_grid()
-screen.blit(font.render(str(grid.score), True, RED), [10, 10])
 pygame.display.flip()
 
 #declaring status dict for player movement
@@ -60,14 +97,35 @@ status_dict = {pygame.K_UP: (-1, 0),
 
 #main game loop
 while not done:
+    read, write, error = select.select([my_socket], [my_socket], [my_socket])
+    if len(write) != 0:
+        write = write[0]
+
+    #tring to read new location from the server and placing in on the board
+    if len(read) != 0:
+        read = read[0]
+        data = ""
+        try:
+            data = read.recv(1024)
+        finally:
+            if data != "":
+                new_pos, id_id = data.split("+")
+                new_pos = cPickle.loads(new_pos)
+                value = 1
+                id_id = int(id_id)
+                if id_id == id_number:
+                    value = 2
+                grid.move_player(player_list[id_id], new_pos, value)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
         if event.type == pygame.KEYDOWN:  # movement for the player
             if event.key in status_dict:
-                grid.move_player(player, direction=status_dict[event.key])
-    if num_of_dots == 0:
-        done = True
+                to_send = cPickle.dumps(status_dict[event.key]) + "," + str(id_number)
+                if write is not None:
+                    write.send(to_send)
+
     grid.draw_grid()
     screen.blit(font.render(str(grid.score), True, RED), [10, 10])
     pygame.display.flip()
