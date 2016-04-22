@@ -66,10 +66,32 @@ class Greed:  # game-board class
     def move_player(self, player, direction, value, replace):  # move the player according to the direction
         x, y = player.get_pose()
         new_x, new_y = direction
+<<<<<<< HEAD
         self.grid[x][y] = replace
         x = (x + new_x + self.column_block_num) % self.column_block_num
         y = (y + new_y + self.row_block_num) % self.row_block_num
         if self.grid[x][y] == 3:
+=======
+        self.grid[x][y] = 0
+<<<<<<< HEAD
+        x += new_x
+        y += new_y
+
+        if x < 0:
+            x = self.column_block_num - 1
+        if y < 0:
+            y = self.row_block_num - 1
+        if x == self.column_block_num:
+            x = 00
+        if y == self.row_block_num:
+            y = 0
+=======
+        x = (x + new_x + self.column_block_num) % self.column_block_num
+        y = (y + new_y + self.row_block_num) % self.row_block_num
+>>>>>>> origin/master
+
+        if self.is_dot_next(x, y):
+>>>>>>> origin/master
             self.num_of_dots -= 1
             self.score += 1
         self.change_pos(player, x, y, value)
