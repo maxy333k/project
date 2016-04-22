@@ -1,0 +1,3 @@
+replace at point bug
+num of dots bug
+ghost eating bug

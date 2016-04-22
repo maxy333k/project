@@ -30,7 +30,7 @@ color_list = [WHITE, GREEN, BLUE, YELLOW]
 
 
 class Greed:  # game-board class
-    def __init__(self, row_block_num, column_block_num, role):  # work, don't touch it
+    def __init__(self, row_block_num, column_block_num, fill):  # work, don't touch it
         self.num_of_dots = 0
         self.width = 20
         self.height = 20
@@ -40,13 +40,14 @@ class Greed:  # game-board class
         self.grid = []
         self.score = 0
 
+        if fill == 3:
+            self.num_of_dots = row_block_num * column_block_num
+
         # declaring the grid as a kind of 2d array but with list
         for i in xrange(row_block_num):
             self.grid.append([])
             for j in xrange(column_block_num):
-                self.grid[i].append(role)
-                if role == 3:
-                    self.num_of_dots += 1
+                self.grid[i].append(fill)
 
     def add_screen(self, screen):
         self.screen = screen
@@ -62,10 +63,10 @@ class Greed:  # game-board class
                     self.num_of_dots += 1
         return self.num_of_dots
 
-    def move_player(self, player, direction, value):  # move the player according to the direction
+    def move_player(self, player, direction, value, replace):  # move the player according to the direction
         x, y = player.get_pose()
         new_x, new_y = direction
-        self.grid[x][y] = 0
+        self.grid[x][y] = replace
         x = (x + new_x + self.column_block_num) % self.column_block_num
         y = (y + new_y + self.row_block_num) % self.row_block_num
         if self.grid[x][y] == 3:
@@ -87,3 +88,10 @@ class Greed:  # game-board class
 
     def get_num_of_dots(self):
         return self.num_of_dots
+
+    def calc_next_pos(self, current_pos, status):
+        x, y = current_pos
+        new_x, new_y = status
+        x = (x + new_x + self.column_block_num) % self.column_block_num
+        y = (y + new_y + self.row_block_num) % self.row_block_num
+        return x, y

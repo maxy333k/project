@@ -50,6 +50,7 @@ def connect(my_socket):  # connect to server and return the grid with all the pl
     count = 0
     board = Greed(x_length, y_length, role)
     for temp_player in players_list:
+        print "hi"
         if count == number:
             board.place_player(temp_player, 2)
         else:
@@ -105,6 +106,7 @@ status_dict = {pygame.K_UP: (-1, 0),
                pygame.K_a: (0, -1),
                pygame.K_d: (0, 1)}
 
+status = ""
 #main game loop
 while done == 0:
     read, write, error = select.select([my_socket], [my_socket], [my_socket])
@@ -119,28 +121,34 @@ while done == 0:
             data = read.recv(1024)
         finally:
             if data != "":
-                new_pos, id_id, done = data.split("+")
-                done = int(done)
-                new_pos = cPickle.loads(new_pos)
-                value = 1
-                id_id = int(id_id)
-                if id_id == id_number:
-                    value = 2
-                grid.move_player(player_list[id_id], new_pos, value)
-
+                data = cPickle.loads(data)
+                for data_tuple in [data]:
+                    (new_pos, id_id, done, replace) = data_tuple
+                    new_pos = cPickle.loads(new_pos)
+                    id_id = int(id_id)
+                    if id_id == id_number:
+                        value = 2
+                    else:
+                        value = 1
+                    if role == 0:
+                        replace = 0
+                    done = int(done)
+                    grid.move_player(player_list[id_id], new_pos, value, replace)
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:  # movement for the player
             if event.key in status_dict:
-                to_send = cPickle.dumps(status_dict[event.key]) + "," + str(id_number)
+                status = status_dict[event.key]
+                to_send = cPickle.dumps(status) + "," + str(id_number)
                 if write is not None:
                     write.send(to_send)
 
     grid.draw_grid()
     screen.blit(font.render(str(grid.score), True, RED), [10, 10])
     pygame.display.flip()
+
 if done == 1:
     print "ghosts have won"
 if done == 2:
     print "pac-man won"
 my_socket.close()
-raw_input("game over, you may exit")
+print("game over, you may exit")
